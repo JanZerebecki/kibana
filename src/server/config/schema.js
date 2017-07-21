@@ -35,6 +35,7 @@ module.exports = () => Joi.object({
     autoListen: Joi.boolean().default(true),
     defaultRoute: Joi.string(),
     basePath: Joi.string().default('').allow('').regex(/(^$|^\/.*[^\/]$)/, `start with a slash, don't end with one`),
+    customResponseHeaders: Joi.object().unknown(true).default({}),
     ssl: Joi.object({
       cert: Joi.string(),
       key: Joi.string()
