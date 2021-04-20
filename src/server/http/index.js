@@ -160,7 +160,7 @@ module.exports = function (kbnServer, server, config) {
     path: '/{p*}',
     handler: function (req, reply) {
       let path = req.path;
-      if (path === '/' || path.charAt(path.length - 1) !== '/') {
+      if (path === '/' || path.charAt(path.length - 1) !== '/' || path.charAt(0) === '/') {
         return reply(Boom.notFound());
       }
       const pathPrefix = config.get('server.basePath') ? `${config.get('server.basePath')}/` : '';
